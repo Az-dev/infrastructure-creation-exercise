@@ -1,18 +1,17 @@
 # Instructions
 ### Step 1. Set up a CircleCI project
 ### Step 2. Set up Environment variables in CricleCI project
-***To use the AWS CLI in your jobs you'll need to the following environment variables to the in Circle CI > Project Settings > environment variables. The value of these variables can be fetched from the AWS IAM user.
-If not already, create an AWS IAM user with programmatic access, and it will generate these credentials.***
+*To use the AWS CLI in your jobs you'll need to the following environment variables to the in Circle CI > Project Settings > environment variables. The value of these variables can be fetched from the AWS IAM user.
+If not already, create an AWS IAM user with programmatic access, and it will generate these credentials.*
 ```
 AWS_ACCESS_KEY_ID
 AWS_DEFAULT_REGION
 AWS_SECRET_ACCESS_KEY
 ```
->
-Note - While saving the environment variables in the Circle CI project settings, use capital case as discussed in this thread and also mentioned here (see the DEFAULT column for the correct names).
-Another useful reference: Setting an environment variable in a project. Do read about the various types of environment variables and their relative priorities.
+>*Note - While saving the environment variables in the Circle CI project settings, use capital case as discussed in this thread and also mentioned here (see the DEFAULT column for the correct names).
+Another useful reference: Setting an environment variable in a project. Do read about the various types of environment variables and their relative priorities.*
 ### Step 3. Create the CloudFormation template
-***Create a simple template - template.yml that will create an EC2 instance and the associated security group. This should be pushed into your git repo.***
+*Create a simple template - template.yml that will create an EC2 instance and the associated security group. This should be pushed into your git repo.*
 ### Step 4. Add a new Job in the CircleCI Config file ```create_infrastructure```
 * Create a job in your Circle CI config file named ```create_infrastructure```
 * ```create_infrastructure``` should be:
@@ -20,7 +19,7 @@ Another useful reference: Setting an environment variable in a project. Do read 
     - executing the CloudFormation template to create the infrastructure.
 * Add the ```create_infrastructure``` job to the workflows section.
 ### Step 5. Save the SSH key pair to CircleCI
-***You need to give your CircleCI job access to your SSH keys saved in your Circle CI account.***
+*You need to give your CircleCI job access to your SSH keys saved in your Circle CI account.*
 * Open the key pair xxxx.pem file in any text editor on your local machine and copy the content.
 * Go to CircleCI Project Settings --> SSH Keys > Additional SSH Keys, and paste the paste the SSH key.
 * If done successfully, if will generate a fingerprint.
