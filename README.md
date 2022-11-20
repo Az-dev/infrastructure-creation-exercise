@@ -1,5 +1,7 @@
 **Instructions**
+
 ***Step 1.*** Set up a CircleCI project
+
 ***Step 2.*** Set up Environment variables in CricleCI project
 <sup>
 To use the AWS CLI in your jobs you'll need to the following environment variables to the in Circle CI > Project Settings > environment variables. The value of these variables can be fetched from the AWS IAM user.
@@ -18,4 +20,5 @@ Another useful reference: Setting an environment variable in a project. Do read 
 <sup>
 Create a simple template - template.yml that will create an EC2 instance and the associated security group. This should be pushed into your git repo.
 </sup>
+
 ***Step 4.*** Create"Add pipline logic to" the CircleCI Config file
