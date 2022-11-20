@@ -26,7 +26,7 @@ Another useful reference: Setting an environment variable in a project. Do read 
 ### Step 6. Add a new Job in the CircleCI Config file ```configure_infrastructure```
 * Add ```configure_infrastructure``` job that uses Ansible to execute your Playbook to configure the EC2 instance.
 * ```configure_infrastructure``` job should do the following:
-    - run on the ```python:3.7-alpine3.11``` Docker image
+    - run on the ```python:3.9.15-alpine3.16``` Docker image
     - checkout the repo code to the CircleCI conatiner
     - add the SSH keys from the CircleCI project settings to the CircleCI container
     - install ansible using the command
