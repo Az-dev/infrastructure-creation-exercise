@@ -39,7 +39,7 @@ Another useful reference: Setting an environment variable in a project. Do read 
         ```
 * Add the new job ```configure_infrastructure``` in the workflows section.
 
->*Hint:
+>*Hint -
 * excute the first job "that creates infra" and comment out the second job 
 * then get ip/dns of the created instance & update your inventory with such ip/dns
 * comment out the first job and excute the second job "that configures infra"*
