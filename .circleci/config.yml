@@ -4,8 +4,6 @@ version: 2.1
 commands:
   # Rollback_Exercise
   destroy_environment:
-    docker:
-      - image: amazon/aws-cli
     steps:
       - run:
           name: Destroy environment
@@ -45,9 +43,11 @@ jobs:
               ansible-playbook -i inventory main-remote.yml
   smoke_test:
       docker:
-        - image: alpine:latest
+        # - image: alpine:latest
+        - image: amazon/aws-cli
       steps:
-        - run: apk add --update curl
+        # - run: apk add --update curl
+        - run: yum update curl
         - run:
             name: smoke test
             command: |
