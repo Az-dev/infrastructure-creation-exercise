@@ -38,11 +38,14 @@ Another useful reference: Setting an environment variable in a project. Do read 
         ansible-playbook -i [inventory-file] [playbook-file]
         ```
 * Add the new job ```configure_infrastructure``` in the workflows section.
+### Step 7. Smoke Testing
+- Create a job named ```smoke_test``` to do a simple check on a website ```("https://blog.udacity.com/")``` to see if it exists or not. You can do this easily with ```curl```.
+- If the curl command exits with a __non-zero__, it means the site had an __error__. Catch the error and make sure the pipeline fails
+- Add the job to your pipeline's workflow.
 
 > Hint:
-> - excute the first job "that creates infra" and comment out the second job 
-> - then get ip/dns of the created instance & update your inventory with such ip/dns
-> - comment out the first job and excute the second job "that configures infra"
+> - excute the each job indvidually and comment out the other jobs 
+> - After excuting the first job, get ip/dns of the created instance & update your inventory with such ip/dns
 
  
 
