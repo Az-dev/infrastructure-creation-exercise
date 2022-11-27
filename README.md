@@ -50,10 +50,10 @@ Another useful reference: Setting an environment variable in a project. Do read 
 
 ### Step 9. Switch to the newly deployed app on production ``switching from blue to green`` - in this example we create update our CDN cache to reference the newly create bucket
 - Write a job named ```promote_to_production``` that executes our ```cloudfront.yml``` .. that Modifies the CloudFront Distro's Origin Bucket to Our New Bucket.
-*Note: 
-    - Verify the new deployed app version "modified index.html content in this case" is browsable using Cloudfront domain name. Note that the AWS Cloudfront takes upto 30 mins to create caches and show the updated web page.
-    - In some cases, depending upon your geographical location, it may take upto 24 hours to update the Cloudfront CDN*
-    >By default, CloudFront caches a response from Amazon S3 for 24 hours (Default TTL of 86,400 seconds). If your request lands at an edge location that served the Amazon S3 response within 24 hours, then CloudFront uses the cached response even if you updated the content in Amazon S3.
+*HINT:*
+*Verify the new deployed app version "modified index.html content in this case" is browsable using Cloudfront domain name. Note that the AWS Cloudfront takes upto 30 mins to create caches and show the updated web page.
+In some cases, depending upon your geographical location, it may take upto 24 hours to update the Cloudfront CDN*
+>By default, CloudFront caches a response from Amazon S3 for 24 hours (Default TTL of 86,400 seconds). If your request lands at an edge location that served the Amazon S3 response within 24 hours, then CloudFront uses the cached response even if you updated the content in Amazon S3.
 
 > Hint:
 > - excute the each job indvidually and comment out the other jobs 
