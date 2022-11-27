@@ -43,6 +43,14 @@ Another useful reference: Setting an environment variable in a project. Do read 
 - If the curl command exits with a __non-zero__, it means the site had an __error__. Catch the error and make sure the pipeline fails
 - Add the job to your pipeline's workflow.
 
+### Step 8. Deploy your app - in this example we will create s3 and upload/sync index.html to it-
+- Write a job named ```create_and_deploy_front_end``` that executes the ```bucket.yml``` template to:
+    1- Create a new S3 bucket and
+    2- Copy the contents of the current repo (index.html in our case -that mimics production files-) to the new bucket.
+
+### Step 9. Switch to the newly deployed app on production ``switching from blue to green`` - in this example we create update our CDN cache to reference the newly create bucket
+- Write a job named ```promote_to_production``` that executes our ```cloudfront.yml``` .. that Modifies the CloudFront Distro's Origin Bucket to Our New Bucket.
+
 > Hint:
 > - excute the each job indvidually and comment out the other jobs 
 > - After excuting the first job, get ip/dns of the created instance & update your inventory with such ip/dns
