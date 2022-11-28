@@ -55,6 +55,12 @@ Another useful reference: Setting an environment variable in a project. Do read 
     - In some cases, depending upon your geographical location, it may take upto 24 hours to update the Cloudfront CDN
         >By default, CloudFront caches a response from Amazon S3 for 24 hours (Default TTL of 86,400 seconds). If your request lands at an edge location that served the Amazon S3 response within 24 hours, then CloudFront uses the cached response even if you updated the content in Amazon S3.
 
+### Step 10. Cleaning Up
+- In our case cleaning up activity includes only deleting the previously created S3 bucket from the previous successful
+pipeline.
+- So, we need another job for deleting the S3 bucket created. For this purpose, you need to know which pipeline ID was responsible for creating the S3 bucket created (the last successful production release). We can query Cloudformation for the old *pipeline ID (which represents bucket name/id in our case)* information. So, we write a CircleCI job named ```get_last_deployment_id``` that performs the query and saves the id to a file ```textfile.txt``` that we can persist to the workspace.
+- Write a Job Named ```clean_up_old_front_end``` that uses the pipeline ID to destroy the previous production version's S3 bucket. To achieve this, you need to retrieve from the workspace the file where the previous *pipeline ID (which represents bucket name/id in our case)* was stored.
+
 > Hint:
 > - excute the each job indvidually and comment out the other jobs 
 > - After excuting the first job, get ip/dns of the created instance & update your inventory with such ip/dns
